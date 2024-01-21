@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+import { fetchData } from "./constant";
+
 export const useUserStore = create((set) => ({
 	user: null,
 

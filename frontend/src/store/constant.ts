@@ -1,8 +1,6 @@
-const api = (url: string) => `${process.env.BACKEND_URL}/${url}`;
-
-const fetchData = async <T>(url: string, method: "GET" | "POST" = "GET"): Promise<T> => {
+export const fetchData = async <T>(url: string, method: "GET" | "POST" = "GET"): Promise<T> => {
 	try {
-		const response = await fetch(api(url), {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${url}`, {
 			method: method,
 			headers: {
 				"Content-Type": "application/json",

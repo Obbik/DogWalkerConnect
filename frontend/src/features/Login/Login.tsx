@@ -5,9 +5,8 @@ type Props = {};
 
 export const Login = (props: Props) => {
 	const { fetchUser } = useUserStore((state) => state);
-	useEffect(() => {
-		fetchUser("test123");
-	}, []);
+
+	useEffect(() => {}, []);
 
 	return <div>Login</div>;
 };
