@@ -1,6 +1,6 @@
 const api = (url: string) => `${process.env.BACKEND_URL}/${url}`;
 
-const fetchData = async <T>(url: string, method: "GET" | "POST" = "GET"): Promise<T> => {
+export const fetchData = async <T>(url: string, method: "GET" | "POST" = "GET"): Promise<T> => {
 	try {
 		const response = await fetch(api(url), {
 			method: method,
