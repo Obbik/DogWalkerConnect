@@ -3,25 +3,36 @@ import React from "react";
 import logo from "../../components/images/login.jpg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-type Props = {};
+import { SubmitHandler, useForm } from "react-hook-form";
+enum GenderEnum {
+	female = "female",
+	male = "male",
+	other = "other",
+}
 
-const LoginPage = (props: Props) => {
+interface IFormInput {
+	firstName: string;
+	gender: GenderEnum;
+}
+const LoginPage = () => {
+	const { register, handleSubmit } = useForm<IFormInput>();
+	const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 	return (
 		<div className="flex justify-items-center bg-white text-black ">
 			<div>
 				<Image className="w-full h-screen" src={logo} alt={"logo"} />
 			</div>
-			<div className="m-auto p-2">
+			<form className="m-auto p-2">
 				<h1 className="mb-6">Log In</h1>
 				<label className="mb-6">login </label>
-				<Input />
+				<Input {...register("login")} />
 				<label className="mb-6">Password </label>
 				<Input className="mb-6" placeholder="Enter your password" />
 
 				<Button variant="outline" type="submit">
 					Log In
 				</Button>
-			</div>
+			</form>
 		</div>
 	);
 };
